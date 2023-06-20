@@ -21,8 +21,8 @@ class Conexao {
 
     iniciarServidor() {
         this.app.listen(this.PORT, () => {
-        console.log(`Servidor iniciado na porta ${this.PORT}`);
-        });
+        console.log(`Servidor iniciado na porta ${this.PORT}`); 
+        }); // No lugar desse console.log é possível colocar qualquer função para rodar ao iniciar a aplicação!
     }
 }
 
