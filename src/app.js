@@ -45,27 +45,28 @@ app.post('/sign-up', (req, res) => {
 });
 
 app.post('/tweets', (req, res) => {
-    const { username, tweet } = req.body;
+    const { tweet } = req.body;
 
     userTweet = {
-        username: username,
+        username: userInfo.username,
         tweet: tweet,
+        avatar: userInfo.avatar
     }
 
-    let avatar = '';
-    for (const user of arrayUsers) {
-        if (user.username === username) {
-        avatar = user.avatar;
-        break;
-        }
-    }
+    // let avatar = '';
+    // for (const user of arrayUsers) {
+    //     if (user.username === username) {
+    //     avatar = user.avatar;
+    //     break;
+    //     }
+    // }
 
-    newUserTweet = {
-        username: username,
-        tweet: tweet,
-        avatar: avatar
-    }
-    arrayTweets.push(newUserTweet)
+    // newUserTweet = {
+    //     username: username,
+    //     tweet: tweet,
+    //     avatar: avatar
+    // }
+    arrayTweets.push(userTweet)
     console.log(arrayTweets)
     res.send('Parâmetros de tweet recebidos com sucesso!');
 
