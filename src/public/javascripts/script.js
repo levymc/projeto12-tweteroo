@@ -18,6 +18,7 @@ function signUp() {
 }
 
 function loadTweets() {
+  console.log('chegou aqui')
   axios.get("http://localhost:5000/tweets").then(res => {
     const tweets = res.data;
     let tweetsHtml = '';

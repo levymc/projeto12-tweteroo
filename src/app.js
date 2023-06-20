@@ -13,14 +13,23 @@ conexao.configurarRotaIndex();
 conexao.iniciarServidor();
 
 global.arrayUsers = [];
+global.arrayTweets = [
+	{
+		username: "bobesponja",
+		avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
+		tweet: "Eu amo hambúrguer de siri!"
+	}
+];
 global.userInfo = {
     username: "",
     avatar: ""
 };
 global.userTweet = {
     username: "",
-    avatar: ""
+    tweet: ""
 };
+global.newUserTweet;
+
 
 app.use(bodyParser.json());
 
@@ -35,14 +44,33 @@ app.post('/sign-up', (req, res) => {
     res.send('Ok');
 });
 
-app.get('/tweets', (req, res) => {
+app.post('/tweets', (req, res) => {
     const { username, tweet } = req.body;
-    // Faça algo com os parâmetros recebidos...
-    // Por exemplo, você pode salvar o tweet em um banco de dados ou processá-lo de alguma outra forma.
-    console.log(`Username: ${username}`);
-    console.log(`Tweet: ${tweet}`);
-  
-    // Envie uma resposta para a requisição
+
+    userTweet = {
+        username: username,
+        tweet: tweet,
+    }
+
+    let avatar = '';
+    for (const user of arrayUsers) {
+        if (user.username === username) {
+        avatar = user.avatar;
+        break;
+        }
+    }
+
+    newUserTweet = {
+        username: username,
+        tweet: tweet,
+        avatar: avatar
+    }
+    arrayTweets.push(newUserTweet)
+    console.log(arrayTweets)
     res.send('Parâmetros de tweet recebidos com sucesso!');
-  });
-  
+
+})
+
+app.get('/tweets', (req, res) => {
+    res.send(arrayTweets);
+});
