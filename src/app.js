@@ -12,6 +12,7 @@ conexao.configurarDiretorioEstatico();
 conexao.configurarRotaIndex();
 conexao.iniciarServidor();
 
+global.arrayUsers = [];
 global.userInfo = {
     username: "",
     avatar: ""
@@ -21,14 +22,27 @@ global.userTweet = {
     avatar: ""
 };
 
-
 app.use(bodyParser.json());
+
 app.post('/sign-up', (req, res) => {
     const { username, avatar } = req.body;
     userInfo = {
         username: username,
         avatar: avatar
     }
-    console.log("AQUII", userInfo);
-    res.send('Registro realizado com sucesso!');
+    arrayUsers.push(userInfo)
+    console.log("AQUII", arrayUsers);
+    res.send('Ok');
 });
+
+app.get('/tweets', (req, res) => {
+    const { username, tweet } = req.body;
+    // Faça algo com os parâmetros recebidos...
+    // Por exemplo, você pode salvar o tweet em um banco de dados ou processá-lo de alguma outra forma.
+    console.log(`Username: ${username}`);
+    console.log(`Tweet: ${tweet}`);
+  
+    // Envie uma resposta para a requisição
+    res.send('Parâmetros de tweet recebidos com sucesso!');
+  });
+  

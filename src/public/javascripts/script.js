@@ -5,9 +5,10 @@ function signUp() {
   const picture = document.querySelector("#picture").value;
 
   axios.post("http://localhost:5000/sign-up", {
-    username,
+    username: username,
     avatar: picture
   }).then(() => {
+    console.log("auisiwe")
     _username = username;
     loadTweets();
   }).catch(err => {
