@@ -2,7 +2,6 @@ import express from 'express';
 import Conexao from './conn.js';
 import bodyParser from 'body-parser';
 
-
 const PORT = 5000;
 const app = express();
 const baseDir = process.cwd();
@@ -28,11 +27,11 @@ global.userTweet = {
     username: "",
     tweet: ""
 };
-global.newUserTweet;
 
 
 app.use(bodyParser.json());
 
+// Requisição de Acesso
 app.post('/sign-up', (req, res) => {
     const { username, avatar } = req.body;
     userInfo = {
@@ -44,6 +43,7 @@ app.post('/sign-up', (req, res) => {
     res.send('Ok');
 });
 
+// POST de novos Tweets
 app.post('/tweets', (req, res) => {
     const { tweet } = req.body;
 
@@ -52,26 +52,14 @@ app.post('/tweets', (req, res) => {
         tweet: tweet,
         avatar: userInfo.avatar
     }
-
-    // let avatar = '';
-    // for (const user of arrayUsers) {
-    //     if (user.username === username) {
-    //     avatar = user.avatar;
-    //     break;
-    //     }
-    // }
-
-    // newUserTweet = {
-    //     username: username,
-    //     tweet: tweet,
-    //     avatar: avatar
-    // }
     arrayTweets.push(userTweet)
     console.log(arrayTweets)
     res.send('Parâmetros de tweet recebidos com sucesso!');
 
 })
 
+
+// Requisição dos Tweets
 app.get('/tweets', (req, res) => {
     res.send(arrayTweets);
 });
