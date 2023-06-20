@@ -12,9 +12,23 @@ conexao.configurarDiretorioEstatico();
 conexao.configurarRotaIndex();
 conexao.iniciarServidor();
 
+global.userInfo = {
+    username: "",
+    avatar: ""
+};
+global.userTweet = {
+    username: "",
+    avatar: ""
+};
+
+
 app.use(bodyParser.json());
 app.post('/sign-up', (req, res) => {
     const { username, avatar } = req.body;
-    console.log("AQUII", username, avatar);
+    userInfo = {
+        username: username,
+        avatar: avatar
+    }
+    console.log("AQUII", userInfo);
     res.send('Registro realizado com sucesso!');
 });
