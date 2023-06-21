@@ -15,7 +15,7 @@ class Conexao {
 
     configurarRotaIndex() {
         this.app.get('/', (req, res) => {
-        res.sendFile(path.join(this.baseDir, 'src', 'public', 'index.html'));
+            res.sendFile(path.join(this.baseDir, 'src', 'public', 'index.html'));
         });
     }
 

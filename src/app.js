@@ -54,8 +54,11 @@ app.post('/tweets', (req, res) => {
     }
     arrayTweets.push(userTweet)
     console.log(arrayTweets)
-    res.send('Parâmetros de tweet recebidos com sucesso!');
-
+    if (!userInfo.username == ""){
+        res.send('Parâmetros de tweet recebidos com sucesso!');
+    }else{
+        res.send("“UNAUTHORIZED”")
+    }
 })
 
 
