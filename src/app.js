@@ -32,7 +32,7 @@ app.post('/sign-up', (req, res) => {
     if ( !username || !avatar ) {
         res.status(400).send('Nada foi digitado nos campos de Usuário e/ou Avatar');
     }else{
-        res.send('Ok');
+        res.status(200).send('Ok');
     }
 
     userInfo = {
@@ -53,7 +53,7 @@ app.post('/tweets?', (req, res) => {
         res.status(400).send('UNAUTHORIZED');
     }
     else{
-        res.send('Parâmetros de tweet recebidos com sucesso!');
+        res.status(200).send('Parâmetros de tweet recebidos com sucesso!');
     }
 
     userTweet = {
