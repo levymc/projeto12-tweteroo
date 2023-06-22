@@ -144,7 +144,7 @@ app.get('/tweets', (req, res) => {
             element.username === user && tweetsUser.push(element)  
         })
         console.log(tweetsUser)
-        res.send(tweetsUser)
+        res.status(200).send(tweetsUser)
     }else{
         const tweetsForPage = arrayTweets.slice(0, 10)
         console.log(arrayTweets);
