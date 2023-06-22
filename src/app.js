@@ -11,6 +11,7 @@ conexao.configurarDiretorioEstatico();
 conexao.configurarRotaIndex();
 conexao.iniciarServidor();
 
+let sessionCounter = 0;
 global.arrayUsers = [];
 global.arrayTweets = [
     // {
@@ -83,20 +84,22 @@ app.use(bodyParser.json());
 
 // Requisição de Acesso
 app.post('/sign-up', (req, res) => {
-    const { username, avatar } = req.body;
+    const { username, avatar } = req.body
 
     if ( !username || !avatar || typeof username != 'string' || typeof avatar != 'string' ) {
-        res.status(400).send('BAD REQUEST');
+        res.status(400).send('BAD REQUEST')
     }else{
-        res.status(201).send('Ok');
+        userInfo = {    
+            username: username,
+            avatar: avatar
+        }
+        if (!arrayUsers.find(element => element.username == userInfo.username)){
+            sessionCounter ++
+            arrayUsers.push(userInfo)
+        }
+        console.log("AQUII", arrayUsers, `Contador: ${sessionCounter}`);
+        res.status(201).send('Ok')
     }
-
-    userInfo = {    
-        username: username,
-        avatar: avatar
-    }
-    arrayUsers.push(userInfo)
-    console.log("AQUII", arrayUsers);
 });
 
 // POST de novos Tweets
