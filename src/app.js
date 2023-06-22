@@ -1,6 +1,8 @@
 import express from 'express';
 import Conexao from './conn.js';
 import bodyParser from 'body-parser';
+import { v4 } from 'uuid';
+
 
 const PORT = 5000;
 const app = express();
@@ -11,8 +13,8 @@ conexao.configurarDiretorioEstatico();
 conexao.configurarRotaIndex();
 conexao.iniciarServidor();
 
-let sessionCounter = 0;
-global.arrayUsers = [];
+let sessionCounter = []
+global.arrayUsers = []
 global.arrayTweets = [
     // {
 	// 	username: "bobesponja",
@@ -94,10 +96,11 @@ app.post('/sign-up', (req, res) => {
             avatar: avatar
         }
         if (!arrayUsers.find(element => element.username == userInfo.username)){
-            sessionCounter ++
+            const sessionId = v4();
+            sessionCounter.push(sessionId)
             arrayUsers.push(userInfo)
         }
-        console.log("AQUII", arrayUsers, `Contador: ${sessionCounter}`);
+        console.log("AQUII", arrayUsers, `sessionsIDs: ${sessionCounter}`);
         res.status(201).send('Ok')
     }
 });
@@ -115,9 +118,9 @@ app.post('/tweets?', (req, res) => {
     }
 
     userTweet = {
-        username: userInfo.username,
+        username: arrayUsers[sessionCounter-1].username,
         tweet: tweet,
-        avatar: userInfo.avatar
+        avatar: arrayUsers[sessionCounter-1].avatar
     }
     arrayTweets.push(userTweet);
     // console.log(arrayTweets);
