@@ -89,6 +89,7 @@ app.post('/sign-up', (req, res) => {
         res.status(400).send('BAD REQUEST');
     }else{
         res.status(200).send('Ok');
+        res.status(201).send('CREATED')
     }
 
     userInfo = {    
@@ -103,10 +104,13 @@ app.post('/sign-up', (req, res) => {
 app.post('/tweets?', (req, res) => {
     const { tweet } = req.body;
     
-    if ( !tweet || !userInfo.username || !userInfo.avatar || typeof tweet != 'string'  ) {
+    if ( !tweet || typeof tweet != 'string'  ) {
         res.status(400).send('Nada foi digitado no campo Tweet');
+    }else if ( !userInfo.username || !userInfo.avatar ){
+        res.status(401).send("UNAUTHORIZED")
     }else{
-        res.status(200).send('Parâmetros de tweet recebidos com sucesso!');
+        res.status(200).send('Parâmetros de tweet recebidos com sucesso!')
+        res.status(201).send('CREATED')
     }
 
     userTweet = {
