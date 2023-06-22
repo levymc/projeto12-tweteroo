@@ -85,10 +85,8 @@ app.use(bodyParser.json());
 app.post('/sign-up', (req, res) => {
     const { username, avatar } = req.body;
 
-    if ( !username || !avatar ) {
-        res.status(400).send('Nada foi digitado nos campos de Usuário e/ou Avatar');
-    }else if( typeof username != 'string' || typeof avatar != 'string'){
-        res.status(400).send('BAD REQUEST')
+    if ( !username || !avatar || typeof username != 'string' || typeof avatar != 'string' ) {
+        res.status(400).send('BAD REQUEST');
     }else{
         res.status(200).send('Ok');
     }
@@ -105,12 +103,9 @@ app.post('/sign-up', (req, res) => {
 app.post('/tweets?', (req, res) => {
     const { tweet } = req.body;
     
-    if ( !tweet ) {
+    if ( !tweet || !userInfo.username || !userInfo.avatar || typeof tweet != 'string'  ) {
         res.status(400).send('Nada foi digitado no campo Tweet');
-    }else if ( !userInfo.username || !userInfo.avatar ){
-        res.status(400).send('UNAUTHORIZED');
-    }
-    else{
+    }else{
         res.status(200).send('Parâmetros de tweet recebidos com sucesso!');
     }
 
