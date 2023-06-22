@@ -87,6 +87,8 @@ app.post('/sign-up', (req, res) => {
 
     if ( !username || !avatar ) {
         res.status(400).send('Nada foi digitado nos campos de Usuário e/ou Avatar');
+    }else if( typeof username != 'string' || typeof avatar != 'string'){
+        res.status(400).send('BAD REQUEST')
     }else{
         res.status(200).send('Ok');
     }
