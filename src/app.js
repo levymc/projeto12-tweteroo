@@ -44,9 +44,9 @@ app.post('/sign-up', (req, res) => {
 });
 
 // POST de novos Tweets
-app.post('/tweets', (req, res) => {
+app.post('/tweets?', (req, res) => {
     const { tweet } = req.body;
-
+    
     if ( !tweet ) {
         res.status(400).send('Nada foi digitado no campo Tweet');
     }else if ( !userInfo.username || !userInfo.avatar ){
@@ -67,6 +67,13 @@ app.post('/tweets', (req, res) => {
 
 
 // Requisição dos Tweets
-app.get('/tweets', (req, res) => {
-    res.send(arrayTweets);
+app.get('/tweets?:page', (req, res) => {
+    const { page } = req.params;
+    const pageSize = 10; // Number of tweets per page
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+
+    const tweetsForPage = arrayTweets.slice(startIndex, endIndex);
+
+    res.send(tweetsForPage);
 });
