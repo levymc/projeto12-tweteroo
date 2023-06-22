@@ -35,7 +35,7 @@ app.post('/sign-up', (req, res) => {
         res.status(200).send('Ok');
     }
 
-    userInfo = {
+    userInfo = {    
         username: username,
         avatar: avatar
     }
@@ -69,12 +69,19 @@ app.post('/tweets?', (req, res) => {
 // Requisição dos Tweets
 app.get('/tweets', (req, res) => {
     const { page } = req.query;
-    const pageSize = 10; // Número de tweets por página
-    const startIndex = (page - 1) * pageSize;
-    const endIndex = startIndex + pageSize;
+    const pageSize = 10
+    const startIndex = (parseInt(page) - 1) * pageSize
+    const endIndex = startIndex + pageSize
 
-    const tweetsForPage = arrayTweets.length >= 10 ? arrayTweets.slice(startIndex, endIndex) : arrayTweets
+    if (page){
+        const tweetsForPage = arrayTweets.length >= 10 ? arrayTweets.slice(startIndex, endIndex) : arrayTweets
+        console.log(arrayTweets);
+        res.send(tweetsForPage);
 
-    console.log(tweetsForPage)
-    res.send(tweetsForPage);
+    }else{
+        const tweetsForPage = arrayTweets.slice(0, 9)
+        console.log(arrayTweets);
+        res.send(tweetsForPage);
+    }
 });
+
