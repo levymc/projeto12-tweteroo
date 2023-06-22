@@ -108,7 +108,11 @@ app.post('/sign-up', (req, res) => {
 // POST de novos Tweets
 app.post('/tweets?', (req, res) => {
     const { tweet } = req.body;
-    
+    const sessionId = v4();
+
+    const index = sessionCounter.indexOf(sessionId)
+    console.log(sessionId, index)
+
     if ( !tweet || typeof tweet != 'string'  ) {
         res.status(400).send('Nada foi digitado no campo Tweet');
     }else if ( !userInfo.username || !userInfo.avatar ){
@@ -118,9 +122,9 @@ app.post('/tweets?', (req, res) => {
     }
 
     userTweet = {
-        username: arrayUsers[sessionCounter-1].username,
+        username: arrayUsers[index].username,
         tweet: tweet,
-        avatar: arrayUsers[sessionCounter-1].avatar
+        avatar: arrayUsers[index].avatar
     }
     arrayTweets.push(userTweet);
     // console.log(arrayTweets);
