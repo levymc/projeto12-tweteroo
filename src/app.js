@@ -50,7 +50,7 @@ app.post('/tweets?', (req, res) => {
     if ( !tweet ) {
         res.status(400).send('Nada foi digitado no campo Tweet');
     }else if ( !userInfo.username || !userInfo.avatar ){
-        res.status(200).send('UNAUTHORIZED');
+        res.status(400).send('UNAUTHORIZED');
     }
     else{
         res.send('Parâmetros de tweet recebidos com sucesso!');
