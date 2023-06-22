@@ -133,7 +133,10 @@ app.get('/tweets', (req, res) => {
         console.log(arrayTweets);
         res.send(tweetsForPage);
 
-    }else{
+    }else if ( typeof page != "number" || page < 1 ){
+        res.status(400).send("BAD REQUEST")
+    }
+    else{
         const tweetsForPage = arrayTweets.slice(0, 10)
         console.log(arrayTweets);
         res.send(tweetsForPage);

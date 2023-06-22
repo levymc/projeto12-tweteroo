@@ -10,4 +10,4 @@ import axios from 'axios'
 //     console.log(response.data.length)
 // })
 
-console.log(typeof "Oi" === 'string')
+console.log(typeof 1 === 'number')
