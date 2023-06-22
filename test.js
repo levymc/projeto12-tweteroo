@@ -6,8 +6,8 @@ import axios from 'axios'
 //     console.log(response.data)
 // })
 
-// axios.get('http://localhost:5000/tweets').then(response => {
-//     console.log(response.data.length)
-// })
+axios.get('http://localhost:5000/tweets?page=2').then(response => {
+    console.log(response.data)
+})
 
-console.log(typeof 1 === 'number')
+// console.log(typeof 1 === 'number')

@@ -70,6 +70,7 @@ function loadNextPage() {
   page++;
 
   axios.get(`http://localhost:5000/tweets?page=${page}`).then(res => {
+    console.log("NEXT PAGE")
     const tweets = res.data;
     let tweetsHtml = '';
 
@@ -104,7 +105,7 @@ function goToHome() {
   loadTweets();
 }
 
-function Tweet({ avatar, username, tweet }) {
+function  Tweet({ avatar, username, tweet }) {
   return `
     <div class="tweet" onclick="loadUserTweets('${username}')">
       <div class="avatar">

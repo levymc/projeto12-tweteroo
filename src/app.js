@@ -127,16 +127,18 @@ app.get('/tweets', (req, res) => {
     const pageSize = 10
     const startIndex = (parseInt(page) - 1) * pageSize
     const endIndex = startIndex + pageSize
+    console.log(page, startIndex, endIndex)
 
     if (page){
         const tweetsForPage = arrayTweets.length >= 10 ? arrayTweets.slice(startIndex, endIndex) : arrayTweets
         console.log(arrayTweets);
-        res.send(tweetsForPage);
+        if ( typeof parseInt(page) != "number" || page < 1 ){
+            res.status(400).send("BAD REQUEST")
+        }else{
+            res.send(tweetsForPage);
+        }
 
-    }else if ( typeof page != "number" || page < 1 ){
-        res.status(400).send("BAD REQUEST")
-    }
-    else{
+    }else{
         const tweetsForPage = arrayTweets.slice(0, 10)
         console.log(arrayTweets);
         res.send(tweetsForPage);
