@@ -10,7 +10,7 @@ import axios from 'axios'
 //     console.log(response.data)
 // })
 
-axios.get('http://localhost:5000/tweets?user=leevy').then(response => {
+axios.get('http://localhost:5000/tweets/levy').then(response => {
     console.log(response.data)
 })
 

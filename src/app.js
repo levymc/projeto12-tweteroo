@@ -13,61 +13,61 @@ conexao.iniciarServidor();
 
 global.arrayUsers = [];
 global.arrayTweets = [
-    // {
-	// 	username: "bobesponja",
-	// 	avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
-	// 	tweet: "Eu amo hambúrguer de siri!"
-	// },
-    // {
-	// 	username: "bobesponja",
-	// 	avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
-	// 	tweet: "Eu amo hambúrguer de siri!"
-	// },
-    // {
-	// 	username: "bobesponja",
-	// 	avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
-	// 	tweet: "Eu amo hambúrguer de siri!"
-	// },
-    // {
-	// 	username: "bobesponja",
-	// 	avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
-	// 	tweet: "Eu amo hambúrguer de siri!"
-	// },
-    // {
-	// 	username: "bobesponja",
-	// 	avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
-	// 	tweet: "Eu amo hambúrguer de siri!"
-	// },
-    // {
-	// 	username: "bobesponja",
-	// 	avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
-	// 	tweet: "Eu amo hambúrguer de siri!"
-	// },
-    // {
-	// 	username: "bobesponja",
-	// 	avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
-	// 	tweet: "Eu amo hambúrguer de siri!"
-	// },
-    // {
-	// 	username: "bobesponja",
-	// 	avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
-	// 	tweet: "Eu amo hambúrguer de siri!"
-	// },
-    // {
-	// 	username: "levy",
-	// 	avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
-	// 	tweet: "Eu amo hambúrguer de siri!"
-	// },
-    // {
-	// 	username: "bobesponja",
-	// 	avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
-	// 	tweet: "Eu amo hambúrguer de siri!"
-	// },
-    // {
-	// 	username: "bobesponja",
-	// 	avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
-	// 	tweet: "Eu amo hambúrguer de siri!"
-	// },
+    {
+		username: "bobesponja",
+		avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
+		tweet: "Eu amo hambúrguer de siri!"
+	},
+    {
+		username: "bobesponja",
+		avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
+		tweet: "Eu amo hambúrguer de siri!"
+	},
+    {
+		username: "bobesponja",
+		avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
+		tweet: "Eu amo hambúrguer de siri!"
+	},
+    {
+		username: "bobesponja",
+		avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
+		tweet: "Eu amo hambúrguer de siri!"
+	},
+    {
+		username: "bobesponja",
+		avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
+		tweet: "Eu amo hambúrguer de siri!"
+	},
+    {
+		username: "bobesponja",
+		avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
+		tweet: "Eu amo hambúrguer de siri!"
+	},
+    {
+		username: "bobesponja",
+		avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
+		tweet: "Eu amo hambúrguer de siri!"
+	},
+    {
+		username: "bobesponja",
+		avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
+		tweet: "Eu amo hambúrguer de siri!"
+	},
+    {
+		username: "levy",
+		avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
+		tweet: "Eu amo hambúrguer de siri!"
+	},
+    {
+		username: "bobesponja",
+		avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
+		tweet: "Eu amo hambúrguer de siri!"
+	},
+    {
+		username: "bobesponja",
+		avatar: "https://cdn.shopify.com/s/files/1/0150/0643/3380/files/Screen_Shot_2019-07-01_at_11.35.42_AM_370x230@2x.png",
+		tweet: "Eu amo hambúrguer de siri!"
+	},
 ];
 global.userInfo = {
     username: "",
@@ -123,7 +123,7 @@ app.post('/tweets?', (req, res) => {
 
 // Requisição dos Tweets
 app.get('/tweets', (req, res) => {
-    const { page, user } = req.query;
+    const { page } = req.query;
     const pageSize = 10
     const startIndex = (parseInt(page) - 1) * pageSize
     const endIndex = startIndex + pageSize
@@ -138,13 +138,6 @@ app.get('/tweets', (req, res) => {
             res.send(tweetsForPage);
         }
 
-    }else if ( user ){
-        const tweetsUser = []
-        arrayTweets.forEach(element => {
-            element.username === user && tweetsUser.push(element)  
-        })
-        console.log(tweetsUser)
-        res.status(200).send(tweetsUser)
     }else{
         const tweetsForPage = arrayTweets.slice(0, 10)
         console.log(arrayTweets);
@@ -152,3 +145,17 @@ app.get('/tweets', (req, res) => {
     }
 });
 
+app.get('/tweets/:user', (req, res) => {
+    const { user } = req.params
+    console.log(user)
+    if ( user ){
+        const tweetsUser = []
+        arrayTweets.forEach(element => {
+            element.username === user && tweetsUser.push(element)  
+        })
+        console.log(tweetsUser)
+        res.status(200).send(tweetsUser)
+    }else{
+        res.send([])
+    }
+})
