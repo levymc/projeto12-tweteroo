@@ -156,6 +156,6 @@ app.get('/tweets/:user', (req, res) => {
         console.log(tweetsUser)
         res.status(200).send(tweetsUser)
     }else{
-        res.send([])
+        res.send([""])
     }
 })
