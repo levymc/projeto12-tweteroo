@@ -22,6 +22,7 @@ function signUp() {
 function loadTweets() {
   page = 1;
   axios.get(`http://localhost:5000/tweets?page=${page}`).then(res => {
+    console.log(res.data)
     const tweets = res.data;
     let tweetsHtml = '';
 
@@ -49,8 +50,11 @@ function postTweet() {
       document.querySelector("#tweet").value = "";
       loadTweets();
       return
+    }else if (response.status === 200){
+      document.querySelector("#tweet").value = "";
+      loadTweets();
+      return
     }
-
     console.error(response);
     alert("Erro ao fazer tweet! Consulte os logs.")
   }).catch(err => {

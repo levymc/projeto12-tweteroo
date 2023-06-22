@@ -62,18 +62,19 @@ app.post('/tweets?', (req, res) => {
         avatar: userInfo.avatar
     }
     arrayTweets.push(userTweet);
-    console.log(arrayTweets);
+    // console.log(arrayTweets);
 });
 
 
 // Requisição dos Tweets
-app.get('/tweets?:page', (req, res) => {
-    const { page } = req.params;
-    const pageSize = 10; // Number of tweets per page
+app.get('/tweets', (req, res) => {
+    const { page } = req.query;
+    const pageSize = 10; // Número de tweets por página
     const startIndex = (page - 1) * pageSize;
     const endIndex = startIndex + pageSize;
 
-    const tweetsForPage = arrayTweets.slice(startIndex, endIndex);
+    const tweetsForPage = arrayTweets.length >= 1 ? arrayTweets.slice(startIndex, endIndex) : arrayTweets
 
+    console.log(tweetsForPage)
     res.send(tweetsForPage);
 });
