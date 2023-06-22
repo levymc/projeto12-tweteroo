@@ -73,7 +73,7 @@ app.get('/tweets', (req, res) => {
     const startIndex = (page - 1) * pageSize;
     const endIndex = startIndex + pageSize;
 
-    const tweetsForPage = arrayTweets.length >= 1 ? arrayTweets.slice(startIndex, endIndex) : arrayTweets
+    const tweetsForPage = arrayTweets.length >= 10 ? arrayTweets.slice(startIndex, endIndex) : arrayTweets
 
     console.log(tweetsForPage)
     res.send(tweetsForPage);
