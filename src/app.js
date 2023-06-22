@@ -88,8 +88,7 @@ app.post('/sign-up', (req, res) => {
     if ( !username || !avatar || typeof username != 'string' || typeof avatar != 'string' ) {
         res.status(400).send('BAD REQUEST');
     }else{
-        res.status(200).send('Ok');
-        res.status(201).send('CREATED')
+        res.status(201).send('Ok');
     }
 
     userInfo = {    
@@ -109,8 +108,7 @@ app.post('/tweets?', (req, res) => {
     }else if ( !userInfo.username || !userInfo.avatar ){
         res.status(401).send("UNAUTHORIZED")
     }else{
-        res.status(200).send('Parâmetros de tweet recebidos com sucesso!')
-        res.status(201).send('CREATED')
+        res.status(201).send('Parâmetros de tweet recebidos com sucesso!')
     }
 
     userTweet = {

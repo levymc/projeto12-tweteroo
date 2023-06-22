@@ -8,7 +8,7 @@ function signUp() {
     username,
     avatar: picture
   }).then((response) => {
-    // console.log(response)
+    console.log(response)
     _username = username;
     loadTweets();
   }).catch(err => {
