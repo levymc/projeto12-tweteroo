@@ -28,32 +28,39 @@ app.use(bodyParser.json());
 // Requisição de Acesso
 app.post('/sign-up', (req, res) => {
     const { username, avatar } = req.body;
+
+    if ( !username || !avatar ) {
+        return res.status(400).send('Nada foi digitado nos campos de Usuário e/ou Avatar');
+    }else{
+        res.send('Ok');
+    }
+
     userInfo = {
         username: username,
         avatar: avatar
     }
     arrayUsers.push(userInfo)
     console.log("AQUII", arrayUsers);
-    res.send('Ok');
 });
 
 // POST de novos Tweets
 app.post('/tweets', (req, res) => {
     const { tweet } = req.body;
 
+    if ( !tweet ) {
+        return res.status(400).send('Nada foi digitado no campo Tweet');
+    }else{
+        res.send('Parâmetros de tweet recebidos com sucesso!');
+    }
+
     userTweet = {
         username: userInfo.username,
         tweet: tweet,
         avatar: userInfo.avatar
     }
-    arrayTweets.push(userTweet)
-    console.log(arrayTweets)
-    if (!userInfo.username == ""){
-        res.send('Parâmetros de tweet recebidos com sucesso!');
-    }else{
-        res.send("“UNAUTHORIZED”")
-    }
-})
+    arrayTweets.push(userTweet);
+    console.log(arrayTweets);
+});
 
 
 // Requisição dos Tweets
