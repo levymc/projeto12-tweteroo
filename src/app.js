@@ -94,7 +94,6 @@ app.post('/sign-up', (req, res) => {
             avatar: avatar
         }
         if (!arrayUsers.find(element => element.username == userInfo.username)){
-            sessionCounter ++
             arrayUsers.push(userInfo)
         }
         console.log("AQUII", arrayUsers, `Contador: ${sessionCounter}`);
@@ -105,22 +104,23 @@ app.post('/sign-up', (req, res) => {
 // POST de novos Tweets
 app.post('/tweets?', (req, res) => {
     const { tweet } = req.body;
+    const { user } = req.headers
+    console.log("User:", user)
     
     if ( !tweet || typeof tweet != 'string'  ) {
         res.status(400).send('Nada foi digitado no campo Tweet');
-    }else if ( !userInfo.username || !userInfo.avatar ){
+    }else if ( !arrayUsers.find(element => element.username == user) ){
         res.status(401).send("UNAUTHORIZED")
     }else{
+        userTweet = {
+            username: user,
+            tweet: tweet,
+            avatar: arrayUsers.find(element => element.username == user).avatar
+        }
+        arrayTweets.push(userTweet);
+        console.log(arrayTweets)
         res.status(201).send('Parâmetros de tweet recebidos com sucesso!')
     }
-
-    userTweet = {
-        username: userInfo.username,
-        tweet: tweet,
-        avatar: userInfo.avatar
-    }
-    arrayTweets.push(userTweet);
-    // console.log(arrayTweets);
 });
 
 
